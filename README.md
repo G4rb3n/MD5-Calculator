@@ -12,4 +12,8 @@ Usage：
       
    python MD5-Calculator.py [dir_path/file_path] .data  --> section .data MD5
       
-   ![MD5-Calculator演示图](https://github.com/G4rb3n/MD5-Calculator/blob/master/MD5-Calculator.png)
+      
+   ![MD5-Calculator演示图](https://github.com/G4rb3n/MD5-Calculator/blob/master/MD5-Calculator1.png)
+   
+   
+   ![MD5-Calculator演示图](https://github.com/G4rb3n/MD5-Calculator/blob/master/MD5-Calculator2.png)
