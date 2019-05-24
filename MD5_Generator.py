@@ -5,30 +5,8 @@ import argparse
 import pefile
 import hashlib
 
+# 计算PE文件的MD5信息
 def get_sec_md5(file_path, sec_name) :
-
-    '''
-
-    sec_md5 = ''
-
-    if sec_name == 'file' :
-
-        md5 =  hashlib.md5(open(file_path, 'rb').read()).hexdigest()
-        print(file_path + '\t\t' + md5 + '\t' + args.sec_name)
-
-    else :
-
-        try:
-            pe = pefile.PE(file_path)
-            for section in pe.sections:
-                if sec_name.encode() in section.Name:
-                    sec_md5 = section.get_hash_md5()
-            pe.close()
-        except:
-            sec_md5 = ''
-
-        print(file_path + '\t\t' + sec_md5 + '\t' + args.sec_name)
-    '''
 
     print(" " + os.path.basename(file_path))
     print("\t|")
@@ -43,7 +21,7 @@ def get_sec_md5(file_path, sec_name) :
                     print("\t|-- [ " + section.Name.decode()[:-2] + "] -> [" + section.get_hash_md5() + "]")
         pe.close()
     except :
-        print("it is not a pe !")
+        return 0
 
 
 if __name__ == "__main__" :
@@ -57,11 +35,14 @@ if __name__ == "__main__" :
     print("\n\n\t\t\tMD5 Generator")
     print("=================================================================\n")
 
+    # 遍历文件夹
     if os.path.isdir(args.path):
     	files = os.listdir(args.path)
     	for file in files:
             file_path = args.path + file
             get_sec_md5(file_path, args.sec_name)
-            
+    
+    # 若是文件，则直接计算MD5信息
     else :
         get_sec_md5(args.path, args.sec_name)
+
